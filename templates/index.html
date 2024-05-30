@@ -1,0 +1,454 @@
+<!DOCTYPE HTML>
+<!--
+	Dimension by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>kdrama 분석</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" />
+		<noscript><link rel="stylesheet" href="{{ url_for('static', filename='css/noscript.css') }}" /></noscript>
+
+		<style>
+			#bg:before {
+				background-image: linear-gradient(to top, rgba(19, 21, 25, 0.5), rgba(19, 21, 25, 0.5)), url("{{ url_for('static', filename='images/overlay.png') }}");
+			}
+			.image:before {
+				background-image: url("{{ url_for('static', filename='images/overlay.png') }}")
+			}
+			#bg:after {
+				background-image: url("{{ url_for('static', filename='images/bg.jpg') }}")
+			}
+		</style>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<div class="logo">
+							<span class="icon fa-gem"></span>
+						</div>
+						<div class="content">
+							<div class="inner">
+								<h1> 산대특 사물지능 K-Drama Mini Project</h1>
+								<h3> 임동원 이반석 김민기 모현정 김가연 </h3>
+							</div>
+						</div>
+						<nav>
+							<ul>
+								<li><a href="#intro">1.분석 목표 및 방법</a></li>
+								<li><a href="#work">2.사용한 라이브러리 및 활용 데이터셋</a></li>
+								<li><a href="#about">3.데이터 전처리 과정</a></li>
+								<li><a href="#Contact">4.분석 결과 시각화</a></li>
+								<li><a href="#visualization">5.분석에 대한 결론</a></li>
+								<li><a href="#reference">6.참고 문헌 & 출처</a></li>
+								<li><a href="#member">7.팀원 역할</a></li>
+								<!--<li><a href="#elements">Elements</a></li>-->
+							</ul>
+						</nav>
+					</header>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Intro -->
+							<article id="intro">
+								
+								<h2 class="major" id="title">분석목표 및 방법</h2>
+
+								<h2>분석 목표</h2>
+								
+								<p>랭킹에 어떤 요소가 영향을 미칠까?</p>
+
+								<h2>분석 방법</h2>
+
+								<p>- 드라마 랭킹에 미치는 영향을 조사</p>
+								<p>- 멜론 드라마별 OST Top2, 유튜브 조회수</p>
+								<p>- 요일, 장르, OST, 회차수, 방영사별 시청률 분석</p>
+							</article>
+
+						<!-- Work -->
+							<article id="work">
+								<h2 class="major" id="title">사용한 라이브러리 및 활용 데이터셋</h2>
+								<div id="library">
+									<span class="image main" id="library_data">
+                                    <img src="{{ url_for('static', filename='images/library.jpg') }}" alt="Example Image">
+                                    </span>
+                                    <span>
+                                         <h2>활용 데이터 셋</h2>
+                                    <img src="{{ url_for('static', filename='images/data.png') }}" alt="Example Image" style = "width : 72rem">
+                                    </span>
+								</div>
+								
+							</article>
+
+						<!-- About -->
+							<article id="about">
+								<h2 class="major" id="title">데이터 전처리 과정</h2>
+								<p>- Cast 컬럼 이상치 제거</p>
+								<span class="image main" id="library_data"><img src="{{ url_for('static', filename='images/actor.png') }}" alt="">								</span>
+								<p>- Genre 컬럼 추가</p>
+								<span class="image main" id="library_data"><img src="{{ url_for('static', filename='images/genre.png') }}" alt="Example Image">							</span>
+								<p>- 시청률, Rank 컬럼 데이터 변환</p>
+								<span class="image main" id="library_data">
+									<img src="{{ url_for('static', filename='images/persent.PNG') }}" alt="Example Image"></span>
+								<p>- 시청률 컬럼 결측치 제거</p>
+								<span class="image main" id="library_data">
+									<img src="{{ url_for('static', filename='images/dropna.PNG') }}" alt="Example Image"></span>
+								<p>- Aired On 컬럼 결측치 제거</p>
+								<span class="image main" id="library_data"><img src="{{ url_for('static', filename='images/daily.PNG') }}" alt="Example Image"></span>
+							</article>
+							
+							<!-- Contact -->
+							<article id="Contact">
+								<h2 class="major" id="title">분석 결과 시각화</h2>
+								<div class="my_box">
+									<div>배우 워드클라우드</div>
+									<img src="{{ url_for('static', filename='images/ac_word.jpg') }}" alt="" id = "요일별 평균 시청률" class="my_img">
+								 </div>
+								 <br>
+								 <div class="my_box">
+									<div>장르 워드클라우드</div>
+									<img src="{{ url_for('static', filename='images/genre_word.png') }}" alt="" id = "요일별 평균 시청률" class="my_img">
+								 </div>
+								 <br>
+                                
+								<div class="my_box">
+									<div>장르별 평균 평점</div>
+									<img src="{{ url_for('static', filename='images/genre_rating.jpg') }}" alt="" id = "요일별 평균 시청률" class="my_img">      
+ 								</div>
+								<br>
+								<div class="my_box">
+									<div>장르별 평균 시청률</div>
+									<img src="{{ url_for('static', filename='images/genre_rate.jpg') }}" alt="" id = "요일별 평균 시청률" class="my_img">
+								</div>
+								<br>
+                                
+								<div class="my_box">
+									<div>방영사별 평균 시청률</div>
+									<img src="{{ url_for('static', filename='images/daily_rate.jpg') }}" alt="Example Image" id = "방영사별 평균 시청률" class="my_img">
+								</div>
+								<br>
+ 								<div class="my_box">
+									<div>방영사별 TOP5 평균 시청률</div>
+									<img src="{{ url_for('static', filename='images/ot5_rate.jpg') }}" alt="" id = "요일별 평균 시청률" class="my_img">
+								</div>
+								<br>
+
+								<div class="my_box">
+									<div>요일별 평균 시청률</div>
+									<img src="{{ url_for('static', filename='images/aired_rate.jpg') }}" alt="" id = "요일별 평균 시청률" class="my_img">
+								</div>
+								<br>
+
+								<div class="my_box">
+									<div>회차별 평균 시청률</div>
+									<img src="{{ url_for('static', filename='images/ep_rate.jpg') }}" alt="" id = "요일별 평균 시청률" class="my_img">
+								</div>
+								<br>
+
+
+
+		 
+
+							</article>
+						
+							
+							<!-- Visualization -->
+							<article id="visualization">
+								<h2 class="major" id="title">분석에 대한 결론</h2>
+								<img src="{{ url_for('static', filename='images/end.jpg') }}" alt="" id = "end">
+								
+							</article>
+
+								<!--Reference -->
+								<article id="reference">
+									<h2 class="major">참고 문헌 & 출처</h2>
+									<p style="display: block; justify-items: center;"><img src="{{ url_for('static', filename='images/kaggle.png') }}" alt="" width="150px" height="50"><Br>https://www.kaggle.com/code/sample-top-100-korean-dramas</p>
+									<p><img src="{{ url_for('static', filename='images/melon.png') }}" alt="" width="150px" height="50"><Br>https://www.youtube.com/results?search_query=ost+top100</p>
+									<p><img src="{{ url_for('static', filename='images/youtube.png') }}" alt="" width="150px" height="50" id=""><Br>https://www.melon.com/search/total/ost&section=&mwkLogType=T</p>
+									<p>박응용.Do it! 점프 투 파이썬』.이지스퍼블리싱.2023</p>
+									<p>박응용.Do it! 점프 투 플라스크』.이지스퍼블리싱.2020</p>
+								</article>
+							
+							<!-- member -->
+							<article id="member">
+								<h2 class="major" id="title">팀원 역할</h2>
+								<p>임동원 : 데이터 전처리, 데이터 크롤링</p>
+								<p>이반석 : html, 데이터 전처리</p>
+								<p>김민기 : 데이터 크롤링, 데이터 시각화</p>
+								<p>모현정 : flask, 번역 크롤링</p>
+								<p>김가연 : 데이터 시각화, html</p>
+							</article>
+						
+						
+						<!-- Elements -->
+							<article id="elements">
+								<h2 class="major">Elements</h2>
+
+								<section>
+									<h3 class="major">Text</h3>
+									<p>This is <b>bold</b> and this is <strong>strong</strong>. This is <i>italic</i> and this is <em>emphasized</em>.
+									This is <sup>superscript</sup> text and this is <sub>subscript</sub> text.
+									This is <u>underlined</u> and this is code: <code>for (;;) { ... }</code>. Finally, <a href="#">this is a link</a>.</p>
+									<hr />
+									<h2>Heading Level 2</h2>
+									<h3>Heading Level 3</h3>
+									<h4>Heading Level 4</h4>
+									<h5>Heading Level 5</h5>
+									<h6>Heading Level 6</h6>
+									<hr />
+									<h4>Blockquote</h4>
+									<blockquote>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan faucibus. Vestibulum ante ipsum primis in faucibus lorem ipsum dolor sit amet nullam adipiscing eu felis.</blockquote>
+									<h4>Preformatted</h4>
+									<pre><code>i = 0;
+
+while (!deck.isInOrder()) {
+    print 'Iteration ' + i;
+    deck.shuffle();
+    i++;
+}
+
+print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
+								</section>
+
+								<section>
+									<h3 class="major">Lists</h3>
+
+									<h4>Unordered</h4>
+									<ul>
+										<li>Dolor pulvinar etiam.</li>
+										<li>Sagittis adipiscing.</li>
+										<li>Felis enim feugiat.</li>
+									</ul>
+
+									<h4>Alternate</h4>
+									<ul class="alt">
+										<li>Dolor pulvinar etiam.</li>
+										<li>Sagittis adipiscing.</li>
+										<li>Felis enim feugiat.</li>
+									</ul>
+
+									<h4>Ordered</h4>
+									<ol>
+										<li>Dolor pulvinar etiam.</li>
+										<li>Etiam vel felis viverra.</li>
+										<li>Felis enim feugiat.</li>
+										<li>Dolor pulvinar etiam.</li>
+										<li>Etiam vel felis lorem.</li>
+										<li>Felis enim et feugiat.</li>
+									</ol>
+									<h4>Icons</h4>
+									<ul class="icons">
+										<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+										<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+										<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+										<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
+									</ul>
+
+									<h4>Actions</h4>
+									<ul class="actions">
+										<li><a href="#" class="button primary">Default</a></li>
+										<li><a href="#" class="button">Default</a></li>
+									</ul>
+									<ul class="actions stacked">
+										<li><a href="#" class="button primary">Default</a></li>
+										<li><a href="#" class="button">Default</a></li>
+									</ul>
+								</section>
+
+								<section>
+									<h3 class="major">Table</h3>
+									<h4>Default</h4>
+									<div class="table-wrapper">
+										<table>
+											<thead>
+												<tr>
+													<th>Name</th>
+													<th>Description</th>
+													<th>Price</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>Item One</td>
+													<td>Ante turpis integer aliquet porttitor.</td>
+													<td>29.99</td>
+												</tr>
+												<tr>
+													<td>Item Two</td>
+													<td>Vis ac commodo adipiscing arcu aliquet.</td>
+													<td>19.99</td>
+												</tr>
+												<tr>
+													<td>Item Three</td>
+													<td> Morbi faucibus arcu accumsan lorem.</td>
+													<td>29.99</td>
+												</tr>
+												<tr>
+													<td>Item Four</td>
+													<td>Vitae integer tempus condimentum.</td>
+													<td>19.99</td>
+												</tr>
+												<tr>
+													<td>Item Five</td>
+													<td>Ante turpis integer aliquet porttitor.</td>
+													<td>29.99</td>
+												</tr>
+											</tbody>
+											<tfoot>
+												<tr>
+													<td colspan="2"></td>
+													<td>100.00</td>
+												</tr>
+											</tfoot>
+										</table>
+									</div>
+
+									<h4>Alternate</h4>
+									<div class="table-wrapper">
+										<table class="alt">
+											<thead>
+												<tr>
+													<th>Name</th>
+													<th>Description</th>
+													<th>Price</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>Item One</td>
+													<td>Ante turpis integer aliquet porttitor.</td>
+													<td>29.99</td>
+												</tr>
+												<tr>
+													<td>Item Two</td>
+													<td>Vis ac commodo adipiscing arcu aliquet.</td>
+													<td>19.99</td>
+												</tr>
+												<tr>
+													<td>Item Three</td>
+													<td> Morbi faucibus arcu accumsan lorem.</td>
+													<td>29.99</td>
+												</tr>
+												<tr>
+													<td>Item Four</td>
+													<td>Vitae integer tempus condimentum.</td>
+													<td>19.99</td>
+												</tr>
+												<tr>
+													<td>Item Five</td>
+													<td>Ante turpis integer aliquet porttitor.</td>
+													<td>29.99</td>
+												</tr>
+											</tbody>
+											<tfoot>
+												<tr>
+													<td colspan="2"></td>
+													<td>100.00</td>
+												</tr>
+											</tfoot>
+										</table>
+									</div>
+								</section>
+
+								<section>
+									<h3 class="major">Buttons</h3>
+									<ul class="actions">
+										<li><a href="#" class="button primary">Primary</a></li>
+										<li><a href="#" class="button">Default</a></li>
+									</ul>
+									<ul class="actions">
+										<li><a href="#" class="button">Default</a></li>
+										<li><a href="#" class="button small">Small</a></li>
+									</ul>
+									<ul class="actions">
+										<li><a href="#" class="button primary icon solid fa-download">Icon</a></li>
+										<li><a href="#" class="button icon solid fa-download">Icon</a></li>
+									</ul>
+									<ul class="actions">
+										<li><span class="button primary disabled">Disabled</span></li>
+										<li><span class="button disabled">Disabled</span></li>
+									</ul>
+								</section>
+
+								<section>
+									<h3 class="major">Form</h3>
+									<form method="post" action="#">
+										<div class="fields">
+											<div class="field half">
+												<label for="demo-name">Name</label>
+												<input type="text" name="demo-name" id="demo-name" value="" placeholder="Jane Doe" />
+											</div>
+											<div class="field half">
+												<label for="demo-email">Email</label>
+												<input type="email" name="demo-email" id="demo-email" value="" placeholder="jane@untitled.tld" />
+											</div>
+											<div class="field">
+												<label for="demo-category">Category</label>
+												<select name="demo-category" id="demo-category">
+													<option value="">-</option>
+													<option value="1">Manufacturing</option>
+													<option value="1">Shipping</option>
+													<option value="1">Administration</option>
+													<option value="1">Human Resources</option>
+												</select>
+											</div>
+											<div class="field half">
+												<input type="radio" id="demo-priority-low" name="demo-priority" checked>
+												<label for="demo-priority-low">Low</label>
+											</div>
+											<div class="field half">
+												<input type="radio" id="demo-priority-high" name="demo-priority">
+												<label for="demo-priority-high">High</label>
+											</div>
+											<div class="field half">
+												<input type="checkbox" id="demo-copy" name="demo-copy">
+												<label for="demo-copy">Email me a copy</label>
+											</div>
+											<div class="field half">
+												<input type="checkbox" id="demo-human" name="demo-human" checked>
+												<label for="demo-human">Not a robot</label>
+											</div>
+											<div class="field">
+												<label for="demo-message">Message</label>
+												<textarea name="demo-message" id="demo-message" placeholder="Enter your message" rows="6"></textarea>
+											</div>
+										</div>
+										<ul class="actions">
+											<li><input type="submit" value="Send Message" class="primary" /></li>
+											<li><input type="reset" value="Reset" /></li>
+										</ul>
+									</form>
+								</section>
+
+							</article>
+
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<p class="copyright">&copy; team spirit <a href="https://html5up.net">동원's team</a>.</p>
+					</footer>
+
+			</div>
+
+		<!-- BG -->
+			<div id="bg"></div>
+
+		<!-- Scripts -->
+		<script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+		<script src="{{ url_for('static', filename='js/browser.min.js') }}"></script>
+		<script src="{{ url_for('static', filename='js/breakpoints.min.js') }}"></script>
+		<script src="{{ url_for('static', filename='js/util.js') }}"></script>
+		<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+		
+
+	</body>
+</html>
